@@ -1,30 +1,46 @@
-# This is a basic workflow to help you get started with Actions
+name: Create PK3 and Publish Release
 
-name: CI
-
-# Controls when the workflow will run
+# This action triggers on every push to the main branch.
+# It also allows you to run it manually from the Actions tab.
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-  # Allows you to run this workflow manually from the Actions tab
+    branches:
+      - main
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  build-and-release:
+    # Use the latest version of Ubuntu for the runner
     runs-on: ubuntu-latest
+    
+    # This permission is required for the action to create a release.
+    permissions:
+      contents: write
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
+      # Step 1: Check out repository's code
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      # Runs a single command using the runners shell
-      - name: build PK3 file from repository
-        run: rm $GITHUB_WORKSPACE/README.md && zip -r na_comp_pam_mod.pk3 $GITHUB_WORKSPACE
+      # Step 2: Create the zip file
+      - name: zip repository contents into pk3 file
+        run: zip -r na_comp_pam_mod.pk3 . -x ".git*" "README.md" ".github/*"
+
+      # Step 3: Create a new GitHub Release and upload the zip file as an asset
+      - name: Create Release and Upload Asset
+        uses: softprops/action-gh-release@v2
+        with:
+          # The file(s) to upload as assets.
+          files: na_comp_pam_mod.pk3
+          # Creates a dynamic tag name based on the run number, e.g., v1.0.1, v1.0.2
+          tag_name: v3.1.${{ github.run_number }}
+          # The name of the release.
+          name: Release ${{ github.run_number }}
+          # A description for the release. You can customize this.
+          body: |
+            Automated release created by GitHub Actions.
+            Commit: ${{ github.sha }}
+        env:
+          # The GITHUB_TOKEN is a special access token that GitHub automatically
+          # creates for you to use in your workflow.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
