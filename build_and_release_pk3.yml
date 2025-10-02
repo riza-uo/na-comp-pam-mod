@@ -1,0 +1,46 @@
+name: Create PK3 and Publish Release
+
+# This action triggers on every push to the main branch.
+# It also allows you to run it manually from the Actions tab.
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-release:
+    # Use the latest version of Ubuntu for the runner
+    runs-on: ubuntu-latest
+    
+    # This permission is required for the action to create a release.
+    permissions:
+      contents: write
+
+    steps:
+      # Step 1: Check out repository's code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Create the zip file
+      - name: zip repository contents into pk3 file
+        run: zip -r na_comp_pam_mod.pk3 . -x ".git*" "README.md" ".github/*"
+
+      # Step 3: Create a new GitHub Release and upload the zip file as an asset
+      - name: Create Release and Upload Asset
+        uses: softprops/action-gh-release@v2
+        with:
+          # The file(s) to upload as assets.
+          files: na_comp_pam_mod.pk3
+          # Creates a dynamic tag name based on the run number, e.g., v1.0.1, v1.0.2
+          tag_name: v3.1.${{ github.run_number }}
+          # The name of the release.
+          name: NA COMP PAM Mod V3.1.${{ github.run_number }}
+          # A description for the release. You can customize this.
+          body: |
+            Automated release created by GitHub Actions.
+            Commit: ${{ github.sha }}
+        env:
+          # The GITHUB_TOKEN is a special access token that GitHub automatically
+          # creates for you to use in your workflow.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
