@@ -1354,7 +1354,6 @@ getWeaponBasedSmokeGrenadeCount(weapon)
 	case "svt40_mp":	
 	case "kar98k_mp":
 	case "gewehr43_mp":	
-		return 2;
 	case "thompson_mp":
 	case "thompson_semi_mp":
 	case "sten_mp":
@@ -1373,7 +1372,7 @@ getWeaponBasedSmokeGrenadeCount(weapon)
 	case "mg30cal_mp":
 	case "dp28_mp":
 	case "mg34_mp":
-		return 0;
+		return 1;
 	}
 }
 
@@ -1473,7 +1472,6 @@ getWeaponBasedGrenadeCount(weapon)
 	case "svt40_mp":	
 	case "kar98k_mp":
 	case "gewehr43_mp":	
-		return 3;
 	case "thompson_mp":
 	case "thompson_semi_mp":
 	case "sten_mp":
@@ -1485,7 +1483,6 @@ getWeaponBasedGrenadeCount(weapon)
 	case "bren_mp":
 	case "mp44_mp":
 	case "mp44_semi_mp":
-		return 2;
 	case "springfield_mp":
 	case "mosin_nagant_sniper_mp":
 	case "kar98k_sniper_mp":

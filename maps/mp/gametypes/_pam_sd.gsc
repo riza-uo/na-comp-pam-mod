@@ -176,6 +176,9 @@ PamMain()
 		case "bl_classic":
 			thread maps\mp\gametypes\rules\_britleague_classic_sd_rules::Rules();
 			break;
+		case "na_comp":
+			thread maps\mp\gametypes\rules\_na_comp_sd_rules::Rules();
+			break;
 		case "lan":
 			thread maps\mp\gametypes\rules\_lan_sd_rules::Rules();
 			break;
