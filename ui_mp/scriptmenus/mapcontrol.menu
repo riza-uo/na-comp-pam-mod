@@ -1,0 +1,1630 @@
+#include "ui_mp/menudef.h"
+
+#define ORIGIN_MAPCONTROL		32 256
+
+{
+	menuDef
+	{
+		name			"mapcontrol"
+		fullscreen		0
+		rect			0 0 640 480
+		focuscolor		UI_FOCUS_COLOR
+		disablecolor		0 0 0 0
+ 		style			WINDOW_STYLE_EMPTY
+   		border			0
+
+		onOpen
+		{
+			setCvar cl_bypassMouseInput "0"
+		}
+		onClose
+		{
+			setCvar cl_bypassMouseInput "0"
+		}
+
+		itemDef
+		{
+			name			"window_background"
+			visible			1
+			rect			0 0 275 220 //0 0 224 220
+			origin			ORIGIN_MAPCONTROL
+			forecolor		1 1 1 1
+			backcolor		0 0 0 .75
+	 		style			WINDOW_STYLE_FILLED
+	   		border			1
+	   		bordercolor		1 1 1 1
+			decoration
+		}
+
+		itemDef
+		{
+			name			"window"
+			visible			1
+			rect			0 -32 128 32
+			origin			ORIGIN_MAPCONTROL
+			forecolor		1 1 1 1
+			backcolor		0 0 0 .75
+			style			WINDOW_STYLE_FILLED
+			border			1
+			bordercolor		1 1 1 1
+			type			ITEM_TYPE_TEXT
+			text			"MAP CONTROL"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		10
+			textaligny		20
+			decoration
+		}
+	
+		
+		itemDef
+		{
+			name			maprestart 
+			visible			1
+			rect			10 5 75 15 //75 7 75 15
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			forecolor		1 1 1 1  
+			textscale		.20
+			textalignx		9.5
+			textaligny		10 
+			text			"^3Restart Map"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3MAP IS RESTARTING";
+				exec "wait 500";
+				exec "rcon map_restart"; 
+			}
+			mouseEnter		{ setitemcolor maprestart backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor maprestart backcolor 0 0 0 .75 }
+		}		
+		
+		itemDef
+		{
+			name			nextmap 
+			visible			1
+			rect			190 5 75 15// 175 5 75 15 //138 5 75 15 //75 7 75 15
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			forecolor		1 1 1 1  
+			textscale		.20
+			textalignx		15.5
+			textaligny		10 
+			text			"^3Next Map"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3ROTATING TO NEXT MAP";
+				exec "wait 500";
+				exec "rcon map_rotate"; 
+			}
+			mouseEnter		{ setitemcolor nextmap backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor nextmap backcolor 0 0 0 .75 }
+		}		
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			5 20 75 20
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1  
+			textfont		UI_FONT_NORMAL
+			textscale		.20
+			textalignx		5
+			textaligny		12 //24
+			text			"Select Gametype:"
+			decoration
+		}
+
+		itemDef
+		{
+			name			DM
+			visible			1
+			rect			10 35 25 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		5
+			textaligny		7 
+			text			"DM"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon g_gametype dm";
+			}
+			mouseEnter	{ setitemcolor DM backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor DM backcolor 0 0 0 .75 }
+
+		}
+		
+		itemDef
+		{
+			name			TDM
+			visible			1
+			rect			39 35 25 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		4
+			textaligny		7 
+			text			"TDM"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon g_gametype tdm";
+			}
+			mouseEnter	{ setitemcolor TDM backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor TDM backcolor 0 0 0 .75 }
+
+		}
+		itemDef
+		{
+			name			SD
+			visible			1
+			rect			68 35 25 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		6
+			textaligny		7 
+			text			"SD"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon g_gametype sd";
+			}
+			mouseEnter	{ setitemcolor SD backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor SD backcolor 0 0 0 .75 }
+
+		}
+		itemDef
+		{
+			name			RE
+			visible			1
+			rect			97 35 25 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		6
+			textaligny		7 
+			text			"RE"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon g_gametype re";
+			}
+			mouseEnter	{ setitemcolor RE backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor RE backcolor 0 0 0 .75 }
+
+		}
+		itemDef
+		{
+			name			BEL
+			visible			1
+			rect			126 35 25 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		4
+			textaligny		7
+			text			"BEL"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon g_gametype bel";
+			}
+			mouseEnter	{ setitemcolor BEL backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor BEL backcolor 0 0 0 .75 }
+
+		}
+		itemDef
+		{
+			name			hq
+			visible			1
+			rect			155 35 25 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		6
+			textaligny		7
+			text			"HQ"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon g_gametype hq";
+			}
+			mouseEnter	{ setitemcolor hq backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor hq backcolor 0 0 0 .75 }
+
+		}
+	   	itemDef
+		{
+			name			bas
+			visible			1
+			rect			184 35 25 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		4
+			textaligny		7
+			text			"BAS"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon g_gametype bas";
+			}
+			mouseEnter	{ setitemcolor bas backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor bas backcolor 0 0 0 .75 }
+
+		}
+	        itemDef
+		{
+			name			ctf
+			visible			1
+			rect			213 35 25 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		4
+			textaligny		7
+			text			"CTF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon g_gametype ctf";
+			}
+			mouseEnter	{ setitemcolor ctf backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor ctf backcolor 0 0 0 .75 }
+
+		}    
+		itemDef
+		{
+			name			dom
+			visible			1
+			rect			242 35 25 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		4
+			textaligny		7
+			text			"DOM"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon g_gametype dom";
+			}
+			mouseEnter	{ setitemcolor dom backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor dom backcolor 0 0 0 .75 }
+
+		}
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			5 50 75 20
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1  
+			textfont		UI_FONT_NORMAL
+			textscale		.20
+			textalignx		5
+			textaligny		12
+			text			"Select New Map:"
+			decoration
+		}
+//////////////////////////////////////////////////
+// Stock Maps
+//////////////////////////////////////////////////
+		itemDef
+		{
+			name			arnhem
+			visible			1
+			rect			10 65 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6.3 
+			text			"Arnhem"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO ARNHEM";
+				exec "wait 500";
+				exec "rcon map mp_arnhem";
+			}
+			mouseEnter	{ setitemcolor arnhem backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor arnhem backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			berlin
+			visible			1
+			rect			10 75 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"Berlin"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO BERLIN";
+				exec "wait 500";
+				exec "rcon map mp_berlin";
+			}
+			mouseEnter	{ setitemcolor berlin backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor berlin backcolor 0 0 0 .75 }
+		}
+        itemDef
+		{
+			name			Bocage
+			visible			1
+			rect			10 85 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6.3 
+			text			"Bocage"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO BOCAGE";
+				exec "wait 500";
+				exec "rcon map mp_Bocage";
+			}
+			mouseEnter	{ setitemcolor Bocage backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor Bocage backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			Brecourt
+			visible			1
+			rect			10 95 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"Brecourt"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO BRECOURT";
+				exec "wait 500";
+				exec "rcon map mp_brecourt";
+			}
+			mouseEnter	{ setitemcolor Brecourt backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor Brecourt backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			Carentan
+			visible			1
+			rect			10 105 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"Carentan"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO CARENTAN";
+				exec "wait 500";
+				exec "rcon map mp_carentan";
+			}
+			mouseEnter	{ setitemcolor Carentan backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor Carentan backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			cassino
+			visible			1
+			rect			10 115 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"Cassino"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO CASSINO";
+				exec "wait 500";
+				exec "rcon map mp_cassino";
+			}
+			mouseEnter	{ setitemcolor cassino backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor cassino backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			Chateau
+			visible			1
+			rect			10 125 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6
+			text			"Chateau"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO CHATEAU";
+				exec "wait 500";
+				exec "rcon map mp_Chateau";
+			}
+			mouseEnter	{ setitemcolor Chateau backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor Chateau backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			Dawnville
+			visible			1
+			rect			10 135 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"Dawnville"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO DAWNVILLE";
+				exec "wait 500";
+				exec "rcon map mp_dawnville";
+			}
+			mouseEnter	{ setitemcolor Dawnville backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor Dawnville backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			Depot
+			visible			1
+			rect			10 145 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"Depot"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO DEPOT";
+				exec "wait 500";
+				exec "rcon map mp_depot";
+			}
+			mouseEnter	{ setitemcolor Depot backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor Depot backcolor 0 0 0 .75 }
+
+		}
+
+//////////////////////////////////////////////
+//             Maps Column 2
+//////////////////////////////////////////////
+		itemDef
+		{
+			name			foy
+			visible			1
+			rect			65 65 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6
+			text			"Foy"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO FOY";
+				exec "wait 500";
+				exec "rcon map mp_foy";
+			}
+			mouseEnter	{ setitemcolor foy backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor foy backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			Harbor
+			visible			1
+			rect			65 75 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"Harbor"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO HARBOR";
+				exec "wait 500";
+				exec "rcon map mp_harbor";
+			}
+			mouseEnter	{ setitemcolor Harbor backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor Harbor backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			Hurtgen
+			visible			1
+			rect			65 85 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"Hurtgen"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO HURTGEN";
+				exec "wait 500";
+				exec "rcon map mp_Hurtgen";
+			}
+			mouseEnter	{ setitemcolor Hurtgen backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor Hurtgen backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			italy
+			visible			1
+			rect			65 95 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"Italy"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO ITALY";
+				exec "wait 500";
+				exec "rcon map mp_italy";
+			}
+			mouseEnter	{ setitemcolor italy backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor italy backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			kharkov
+			visible			1
+			rect			65 105 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"Kharkov"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO KHARKOV";
+				exec "wait 500";
+				exec "rcon map mp_kharkov";
+			}
+			mouseEnter	{ setitemcolor kharkov backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor kharkov backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			kursk
+			visible			1
+			rect			65 115 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"Kursk"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO KURSK";
+				exec "wait 500";
+				exec "rcon map mp_kursk";
+			}
+			mouseEnter	{ setitemcolor kursk backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor kursk backcolor 0 0 0 .75 }
+		}
+ 		itemDef
+		{
+			name			Neuville
+			visible			1
+			rect			65 125 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6.3 
+			text			"Neuville"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO NEUVILLE";
+				exec "wait 500";
+				exec "rcon map mp_Neuville";
+			}
+			mouseEnter	{ setitemcolor Neuville backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor Neuville backcolor 0 0 0 .75 }
+		}		
+		itemDef
+		{
+			name			Pavlov
+			visible			1
+			rect			65 135 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"Pavlov"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO PAVLOV";
+				exec "wait 500";
+				exec "rcon map mp_pavlov";
+			}
+			mouseEnter	{ setitemcolor Pavlov backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor Pavlov backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			ponyri
+			visible			1
+			rect			65 145 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"Ponyri"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO PONYRI";
+				exec "wait 500";
+				exec "rcon map mp_ponyri";
+			}
+			mouseEnter	{ setitemcolor ponyri backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor ponyri backcolor 0 0 0 .75 }
+		}
+////////////////////////////////////
+//         Column 3
+////////////////////////////////////
+		itemDef
+		{
+			name			Powcamp
+			visible			1
+			rect			120 65 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"Powcamp"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO POWCAMP";
+				exec "wait 500";
+				exec "rcon map mp_powcamp";
+			}
+			mouseEnter	{ setitemcolor Powcamp backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor Powcamp backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			Railyard
+			visible			1
+			rect			120 75 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"Railyard"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO RAILYARD";
+				exec "wait 500";
+				exec "rcon map mp_railyard";
+			}
+			mouseEnter	{ setitemcolor Railyard backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor Railyard backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			rhinevalley
+			visible			1
+			rect			120 85 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		.5
+			textaligny		6.3 
+			text			"Rhinevalley"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO RHINEVALLEY";
+				exec "wait 500";
+				exec "rcon map mp_rhinevalley";
+			}
+			mouseEnter	{ setitemcolor rhinevalley backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor rhinevalley backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			Rocket
+			visible			1
+			rect			120 95 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"Rocket"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO ROCKET";
+				exec "wait 500";
+				exec "rcon map mp_rocket";
+			}
+			mouseEnter	{ setitemcolor Rocket backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor Rocket backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			Ship
+			visible			1
+			rect			120 105 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"Ship"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO SHIP";
+				exec "wait 500";
+				exec "rcon map mp_ship";
+			}
+			mouseEnter	{ setitemcolor Ship backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor Ship backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			sicily
+			visible			1
+			rect			120 115 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"Sicily"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO SICILY";
+				exec "wait 500";
+				exec "rcon map mp_sicily";
+			}
+			mouseEnter	{ setitemcolor sicily backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor sicily backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			stalingrad
+			visible			1
+			rect			120 125 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6.3 
+			text			"Stalingrad"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO STALINGRAD";
+				exec "wait 500";
+				exec "rcon map mp_stalingrad";
+			}
+			mouseEnter	{ setitemcolor STALINGRAD backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor STALINGRAD backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			uostanjel
+			visible			1
+			rect			120 135 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"Stanjel"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO UO_STANJEL";
+				exec "wait 500";
+				exec "rcon map mp_uo_stanjel";
+			}
+			mouseEnter	{ setitemcolor uostanjel backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor uostanjel backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			tigertown
+			visible			1
+			rect			120 145 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		.3
+			textaligny		6.3 
+			text			"TigerTown"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO TIGERTOWN";
+				exec "wait 500";
+				exec "rcon map mp_tigertown";
+			}
+			mouseEnter	{ setitemcolor tigertown backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor tigertown backcolor 0 0 0 .75 }
+		}
+/////////////////////////////////////
+//        UO Mappack
+/////////////////////////////////////
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			185 60 75 12
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"^5UO Map Pack"
+			
+		}
+		itemDef
+		{
+			name			uocarentan
+			visible			1
+			rect			185 75 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		.5
+			textaligny		6 
+			text			"UOCarentan"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO UO_CARENTAN";
+				exec "wait 500";
+				exec "rcon map mp_uo_carentan";
+			}
+			mouseEnter	{ setitemcolor uocarentan backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor uocarentan backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			uodawnville
+			visible			1
+			rect			185 85 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		.1
+			textaligny		6 
+			text			"UODawnville"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO UO_DAWNVILLE";
+				exec "wait 500";
+				exec "rcon map mp_uo_dawnville";
+			}
+			mouseEnter	{ setitemcolor uodawnville backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor uodawnville backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			uodepot
+			visible			1
+			rect			185 95 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"UODepot"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO UO_DEPOT";
+				exec "wait 500";
+				exec "rcon map mp_uo_depot";
+			}
+			mouseEnter	{ setitemcolor uodepot backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor uodepot backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			uoharbor
+			visible			1
+			rect			185 105 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"UOHarbor"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO UO_HARBOR";
+				exec "wait 500";
+				exec "rcon map mp_uo_harbor";
+			}
+			mouseEnter	{ setitemcolor uoharbor backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor uoharbor backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			uohurtgen
+			visible			1
+			rect			185 115 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"UOHurtgen"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO UO_HURTGEN";
+				exec "wait 500";
+				exec "rcon map mp_uo_hurtgen";
+			}
+			mouseEnter	{ setitemcolor uohurtgen backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor uohurtgen backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			peaks
+			visible			1
+			rect			185 125 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"Peaks"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO PEAKS";
+				exec "wait 500";
+				exec "rcon map mp_peaks";
+			}
+			mouseEnter	{ setitemcolor peaks backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor peaks backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			uopowcamp
+			visible			1
+			rect			185 135 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		.1
+			textaligny		6 
+			text			"UOPowcamp"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO UO_POWCAMP";
+				exec "wait 500";
+				exec "rcon map mp_uo_powcamp";
+			}
+			mouseEnter	{ setitemcolor uopowcamp backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor uopowcamp backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			streets
+			visible			1
+			rect			185 145 45 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"Streets"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SWITCHING TO STREETS";
+				exec "wait 500";
+				exec "rcon map mp_streets";
+			}
+			mouseEnter	{ setitemcolor streets backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor streets backcolor 0 0 0 .75 }
+		}
+
+/////////////////////////CUSTOM SERVER CONFIG SETUP//////////////////////////////////////////
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			10 165 75 20
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1  
+			textfont		UI_FONT_NORMAL
+			textscale		.19
+			textalignx		1
+			textaligny		12
+			text			"^5Custom Server Configs"
+			decoration
+		}  
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			105 165 75 20
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1  
+			textfont		UI_FONT_NORMAL
+			textscale		.13
+			textalignx		1
+			textaligny		12
+			text			"^5(review readme.txt for setup)"
+			decoration
+		}
+		itemDef
+		{
+			name			custconfig1
+			visible			1
+			rect			20 180 35 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6.3 
+			text			"Config 1"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon exec HLC_RCON_Config_1";
+			}
+			mouseEnter	{ setitemcolor custconfig1 backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor custconfig1 backcolor 0 0 0 .75 }
+
+		}
+		itemDef
+		{
+			name			custconfig2
+			visible			1
+			rect			65 180 35 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6.3 
+			text			"Config 2"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon exec HLC_RCON_Config_2";
+			}
+			mouseEnter	{ setitemcolor custconfig2 backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor custconfig2 backcolor 0 0 0 .75 }
+
+		}
+		itemDef
+		{
+			name			custconfig3
+			visible			1
+			rect			110 180 35 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6.3 
+			text			"Config 3"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon exec HLC_RCON_Config_3";
+			}
+			mouseEnter	{ setitemcolor custconfig3 backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor custconfig3 backcolor 0 0 0 .75 }
+
+		}
+		itemDef
+		{
+			name			custconfig4
+			visible			1
+			rect			155 180 35 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6.3 
+			text			"Config 4"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon exec HLC_RCON_Config_4";
+			}
+			mouseEnter	{ setitemcolor custconfig4 backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor custconfig4 backcolor 0 0 0 .75 }
+
+		}
+		itemDef
+		{
+			name			custconfig5
+			visible			1
+			rect			200 180 35 10
+			origin			ORIGIN_MAPCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6.3 
+			text			"Config 5"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon exec HLC_RCON_Config_5";
+			}
+			mouseEnter	{ setitemcolor custconfig5 backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor custconfig5 backcolor 0 0 0 .75 }
+
+		}
+		
+/////////////////////////END OF CUSTOM SERVER CONFIG SETUP//////////////////////////////////////////
+	
+		
+		itemDef
+		{
+			name			back
+			visible			1
+			rect			2 200 40 18
+			origin			ORIGIN_MAPCONTROL
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textscale		.20
+			text			"BACK"
+			textalignx		4
+			textaligny		12
+			action
+			{
+				play "mouse_click";
+				close mapcontrol;
+				open rconmenu;
+			}
+			mouseEnter	{ setitemcolor back backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor back backcolor 0 0 0 .75 }
+
+		}
+		itemDef
+		{
+			name			btgame
+			visible			1
+			rect			75 200 85 18
+			origin			ORIGIN_MAPCONTROL
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textscale		.185
+			text			"BACK TO GAME"
+			textalignx		8
+			textaligny		12
+			action
+			{
+				play "mouse_click";
+				close mapcontrol;
+				ingameclose main;
+			}
+			mouseEnter	{ setitemcolor btgame backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor btgame backcolor 0 0 0 .75 }
+			cvarTest "cl_ingame"
+			showCvar {"1"}
+		}
+	}
+}

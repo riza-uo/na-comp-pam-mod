@@ -1,0 +1,353 @@
+#include "ui_mp/menudef.h"
+
+#define ORIGIN_RCONMESSAGES		32 256
+
+{
+	menuDef
+	{
+		name			"rconmessages"
+		fullscreen		0
+		rect			0 0 640 480
+		focuscolor		UI_FOCUS_COLOR
+		disablecolor		0 0 0 0
+ 		style			WINDOW_STYLE_EMPTY
+   		border			0
+
+		onOpen
+		{
+			setCvar cl_bypassMouseInput "0"
+		}
+		onClose
+		{
+			setCvar cl_bypassMouseInput "0"
+		}
+
+		itemDef
+		{
+			name			"window_background"
+			visible			1
+			rect			0 0 224 220
+			origin			ORIGIN_RCONMESSAGES
+			forecolor		1 1 1 1
+			backcolor		0 0 0 .75
+	 		style			WINDOW_STYLE_FILLED
+	   		border			1
+	   		bordercolor		1 1 1 1
+			decoration
+		}
+	
+		itemDef
+		{
+			name			"window"
+			visible			1
+			rect			0 -32 128 32
+			origin			ORIGIN_RCONMESSAGES
+			forecolor		1 1 1 1
+			backcolor		0 0 0 .75
+			style			WINDOW_STYLE_FILLED
+			border			1
+			bordercolor		1 1 1 1
+			type			ITEM_TYPE_TEXT
+			text			"BROADCAST MESSAGES"
+			textfont		UI_FONT_NORMAL
+			textscale		.19
+			textalignx		10
+			textaligny		20
+			decoration
+		}
+		
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			10 5 128 15
+			origin			ORIGIN_RCONMESSAGES
+			type			ITEM_TYPE_BUTTON
+			forecolor		.9 .9 .9 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.20
+			textalignx		5
+			textaligny		10 
+			text			"ANNOUNCEMENT: HLC RCON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3THIS SERVER USES THE HLC RCON UTILITY v5.0-UO"; 
+			}
+			onFocus
+			{
+				play "mouse_over";
+			}
+		}
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			10 20 128 15
+			origin			ORIGIN_RCONMESSAGES
+			type			ITEM_TYPE_BUTTON
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.20
+			textalignx		5
+			textaligny		10 
+			text			"WARNING: UnEven Teams"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3PLEASE KEEP THE TEAMS EVEN"; 
+			}
+			onFocus
+			{
+				play "mouse_over";
+			}
+		}
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			10 35 128 15
+			origin			ORIGIN_RCONMESSAGES
+			type			ITEM_TYPE_BUTTON
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.20
+			textalignx		5
+			textaligny		10 
+			text			"WARNING: Foul Language"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3PLEASE KEEP YOUR LANGUAGE CLEAN AND RESPECT OTHER PLAYERS"; 
+			}
+			onFocus
+			{
+				play "mouse_over";
+			}
+		}
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			10 60 128 15
+			origin			ORIGIN_RCONMESSAGES
+			type			ITEM_TYPE_BUTTON
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.20
+			textalignx		5
+			textaligny		10 
+			text			"FRIENDLY-FIRE: Off"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3FRIENDLY FIRE IS OFF"; 
+			}
+			onFocus
+			{
+				play "mouse_over";
+			}
+		}
+		
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			10 75 128 15
+			origin			ORIGIN_RCONMESSAGES
+			type			ITEM_TYPE_BUTTON
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.20
+			textalignx		5
+			textaligny		10 
+			text			"FRIENDLY-FIRE: On"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3FRIENDLY FIRE IS ON"; 
+			}
+			onFocus
+			{
+				play "mouse_over";
+			}
+		}
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			10 90 128 15
+			origin			ORIGIN_RCONMESSAGES
+			type			ITEM_TYPE_BUTTON
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.20
+			textalignx		5
+			textaligny		10 
+			text			"FRIENDLY-FIRE: Reflective"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3REFLECTIVE FRIENDLY FIRE IS ON"; 
+			}
+			onFocus
+			{
+				play "mouse_over";
+			}
+		}
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			10 105 128 15
+			origin			ORIGIN_RCONMESSAGES
+			type			ITEM_TYPE_BUTTON
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.20
+			textalignx		5
+			textaligny		10 
+			text			"FRIENDLY-FIRE: Shared"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3SHARED-DAMAGE FRIENDLY FIRE IS ON"; 
+			}
+			onFocus
+			{
+				play "mouse_over";
+			}
+		}
+		
+		
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			10 130 128 15
+			origin			ORIGIN_RCONMESSAGES
+			type			ITEM_TYPE_BUTTON
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.20
+			textalignx		5
+			textaligny		10 
+			text			"MATCHPLAY: Resume After Restart"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3MATCH WILL RESUME AFTER MAP RESTART"; 
+			}
+			onFocus
+			{
+				play "mouse_over";
+			}
+		}
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			10 145 128 15
+			origin			ORIGIN_RCONMESSAGES
+			type			ITEM_TYPE_BUTTON
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.20
+			textalignx		5
+			textaligny		10 
+			text			"MATCHPLAY: Teams Switch Sides"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3PLEASE SWITCH SIDES"; 
+			}
+			onFocus
+			{
+				play "mouse_over";
+			}
+		}
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			10 160 128 15
+			origin			ORIGIN_RCONMESSAGES
+			type			ITEM_TYPE_BUTTON
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.20
+			textalignx		5
+			textaligny		10 
+			text			"MATCHPLAY: Match is On"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3THE MATCH IS ON!"; 
+			}
+			onFocus
+			{
+				play "mouse_over";
+			}
+		}
+		
+		itemDef
+		{
+			name			back
+			visible			1
+			rect			2 200 40 18
+			origin			ORIGIN_RCONMESSAGES
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textscale		.20
+			text			"BACK"
+			textalignx		4
+			textaligny		12
+			action
+			{
+				play "mouse_click";
+				close rconmessages;
+				open rconmenu;
+			}
+			mouseEnter		{ setitemcolor back backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor back backcolor 0 0 0 .75 }
+
+		}
+		itemDef
+		{
+			name			btgame
+			visible			1
+			rect			75 200 85 18
+			origin			ORIGIN_RCONMESSAGES
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			//hm			011504
+			textscale		.185
+			text			"BACK TO GAME"
+			textalignx		8
+			textaligny		12
+			action
+			{
+				play "mouse_click";
+				close rconmessages;
+				ingameclose main;
+			}
+			mouseEnter		{ setitemcolor btgame backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor btgame backcolor 0 0 0 .75 }
+			cvarTest "cl_ingame"
+			showCvar {"1"}
+		}
+																		//scripting by HOLY Moses
+	}
+}

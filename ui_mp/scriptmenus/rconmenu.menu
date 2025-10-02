@@ -1,0 +1,323 @@
+#include "ui_mp/menudef.h"
+
+#define ORIGIN_RCONMENU		32 256
+
+{
+	menuDef
+	{
+		name			"rconmenu"
+		visible			0
+		fullscreen		0
+		rect			0 0 640 480
+		focuscolor		UI_FOCUS_COLOR
+		disablecolor		0 0 0 0
+ 		style			WINDOW_STYLE_EMPTY
+   		border			0
+
+		onOpen
+		{
+			setCvar cl_bypassMouseInput "0"
+		}
+		onClose
+		{
+			setCvar cl_bypassMouseInput "0"
+		}
+
+		itemDef
+		{
+			name			"window_background"
+			visible			1
+			rect			0 0 224 220
+			origin			ORIGIN_RCONMENU
+			forecolor		1 1 1 1
+			backcolor		0 0 0 .75
+			style			WINDOW_STYLE_FILLED
+			border			1
+			bordercolor		1 1 1 1
+			decoration
+		}
+	
+		itemDef
+		{
+			name			"window"
+			visible			1
+			rect			0 -32 128 32
+			origin			ORIGIN_RCONMENU
+			forecolor		1 1 1 1
+			backcolor		0 0 0 .75
+			style			WINDOW_STYLE_FILLED
+			border			1
+			bordercolor		1 1 1 1
+			type			ITEM_TYPE_TEXT
+			text			"HLC RCON v5.2-UO"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textalignx		7
+			textaligny		20
+			decoration
+		}
+		
+		
+		itemDef
+		{
+			name			client
+			group			ingamebox
+			visible			1
+			rect			10 25 110 20 
+			origin			ORIGIN_RCONMENU
+			type			ITEM_TYPE_BUTTON
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.20
+			textalignx		5
+			textaligny		12 
+			text			"Client Control"
+			action
+			{ 
+				play "mouse_click";
+				close rconmenu;
+				open clientcontrol; 
+			}
+			onFocus
+			{
+				play "mouse_over";
+			}
+			
+		}
+		itemDef
+		{
+			name			default
+			group			ingamebox
+			visible			1
+			rect			10 45 110 20 
+			origin			ORIGIN_RCONMENU
+			type			ITEM_TYPE_BUTTON
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.20
+			textalignx		5
+			textaligny		12 
+			text			"Map Control"
+			action
+			{ 
+				play "mouse_click";
+				close rconmenu;
+				open mapcontrol; 
+			}
+			onFocus
+			{
+				play "mouse_over";
+			}
+		}
+		
+		itemDef
+		{
+			name			default
+			group			ingamebox
+			visible			1
+			rect			10 5 110 20 
+			origin			ORIGIN_RCONMENU
+			type			ITEM_TYPE_BUTTON
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.20
+			textalignx		5
+			textaligny		12 
+			text			"Server Settings"
+			action
+			{ 
+				play "mouse_click";
+				close rconmenu;
+				open serversettings;  
+			}
+			onFocus
+			{
+				play "mouse_over";
+			}
+		}
+		
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			10 65 110 20
+			origin			ORIGIN_RCONMENU
+			type			ITEM_TYPE_BUTTON
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.20
+			textalignx		5
+			textaligny		12 
+			text			"Weapons & Vehicles"
+			action
+			{ 
+				play "mouse_click";
+				close rconmenu;
+				open weaponcontrol;
+			}
+			onFocus
+			{
+				play "mouse_over";
+			}
+		}
+		
+		itemDef
+		{
+			name			default
+			group			ingamebox
+			visible			1
+			rect			10 85 110 20
+			origin			ORIGIN_RCONMENU
+			type			ITEM_TYPE_BUTTON
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.20
+			textalignx		5
+			textaligny		12 
+			text			"Broadcast Messages"
+			action
+			{ 
+				play "mouse_click";
+				close rconmenu;
+				open rconmessages;  
+			}
+			onFocus
+			{
+				play "mouse_over";
+			}
+		}
+	
+		itemDef
+		{
+			name			default
+			group			ingamebox
+			visible			1
+			rect			10 105 110 20
+			origin			ORIGIN_RCONMENU
+			type			ITEM_TYPE_BUTTON
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.20
+			textalignx		5
+			textaligny		12 
+			text			"Set RCONPassword"
+			action
+			{ 
+				play "mouse_click";
+				open rconpassword;  
+			}
+			onFocus
+			{
+				play "mouse_over";
+			}
+		}
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			5 165 110 10
+			origin			ORIGIN_RCONMENU
+			type			ITEM_TYPE_BUTTON
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.16
+			textalignx		5
+			textaligny		10 
+			text			"Scripting: ^3[HOLY] Moses, <RoA>[ADM] S1l3nt St4lk3r"
+			decoration
+		}
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			5 205 110 10
+			origin			ORIGIN_RCONMENU
+			type			ITEM_TYPE_BUTTON
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.12
+			textalignx		0
+			textaligny		10 
+			text			"v5.2 UO PB-Enabled"
+			decoration
+		}
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			5 175 190 10
+			origin			ORIGIN_RCONMENU
+			type			ITEM_TYPE_BUTTON
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.17
+			textalignx		5
+			textaligny		10 
+			text			"Compatibility: ^3CoD:UO v1.51 running PB"
+			decoration
+		}
+		
+		itemDef
+		{
+			name			btgame
+			visible			1
+			rect			75 200 85 18
+			origin			ORIGIN_RCONMENU
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textscale		.185
+			text			"BACK TO GAME"
+			textalignx		8
+			textaligny		12
+			action
+			{
+				play "mouse_click";
+				close rconmenu;
+				ingameclose main;
+			}
+			mouseEnter		{ setitemcolor btgame backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor btgame backcolor 0 0 0 .75 }
+
+			cvarTest "cl_ingame"
+			showCvar {"1"}
+			//HLC
+		}
+		itemDef
+		{
+			name			exit
+			visible			1
+			rect			183 200 40 18
+			origin			ORIGIN_RCONMENU
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textscale		.20
+			text			"EXIT"
+			textalignx		7
+			textaligny		12
+			action
+			{
+				play "mouse_click";
+				close rconmenu;
+			}
+			mouseEnter		{ setitemcolor exit backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor exit backcolor 0 0 0 .75 }
+
+
+		}
+		
+		
+		
+	}
+}

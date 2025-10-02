@@ -1,0 +1,3300 @@
+#include "ui_mp/menudef.h"
+
+#define ORIGIN_WEAPONCONTROL		32 256
+
+{
+	menuDef
+	{
+		name			"weaponcontrol"
+		fullscreen		0
+		rect			0 0 640 480
+		focuscolor		UI_FOCUS_COLOR
+		disablecolor		0 0 0 0
+ 		style			WINDOW_STYLE_EMPTY
+   		border			0
+
+		onOpen
+		{
+			setCvar cl_bypassMouseInput "0"
+		}
+		onClose
+		{
+			setCvar cl_bypassMouseInput "0"
+		}
+
+		itemDef
+		{
+			name			"window_background"
+			visible			1
+			rect			0 0 400 220 //0 0 224 220 //192
+			origin			ORIGIN_WEAPONCONTROL
+			forecolor		1 1 1 1
+			backcolor		0 0 0 .75
+	 		style			WINDOW_STYLE_FILLED
+	   		border			1
+	   		bordercolor		1 1 1 1
+			decoration
+		}
+	
+		itemDef
+		{
+			name			"window"
+			visible			1
+			rect			0 -32 128 32
+			origin			ORIGIN_WEAPONCONTROL
+			forecolor		1 1 1 1
+			backcolor		0 0 0 .75
+			style			WINDOW_STYLE_FILLED
+			border			1
+			bordercolor		1 1 1 1
+			type			ITEM_TYPE_TEXT
+			text			"WEAPONS & VEHICLES"
+			textfont		UI_FONT_NORMAL
+			textscale		.21
+			textalignx		7
+			textaligny		20
+			decoration
+		}
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			10 5 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"SPRINGFIELD"
+			
+		}
+
+		itemDef
+		{
+			name			spon
+			visible			1
+			rect			112 5 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_springfield 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE SPRINGFIELD HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor spon backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor spon backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			spoff
+			visible			1
+			rect			85 5 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_springfield 0";
+				exec "wait 600";
+				exec "RCON SAY ^2THE SPRINGFIELD HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor spoff backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor spoff backcolor 0 0 0 .75 }
+		}
+
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			10 15 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"SCOPED NAGANT"
+			
+		}
+
+		itemDef
+		{
+			name			nagson
+			visible			1
+			rect			112 15 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_nagantsniper 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE NAGANT SNIPER HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor nagson backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor nagson backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			nagsoff
+			visible			1
+			rect			85 15 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_nagantsniper 0";
+				exec "wait 600";
+				exec "RCON SAY ^2THE NAGANT SNIPER HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor nagsoff backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor nagsoff backcolor 0 0 0 .75 }
+		}
+
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			10 25 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"KAR98K SNIPER"
+			
+		}
+
+		itemDef
+		{
+			name			karson
+			visible			1
+			rect			112 25 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_kar98ksniper 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE KAR98K SNIPER HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor karson backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor karson backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			karsoff
+			visible			1
+			rect			85 25 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_kar98ksniper 0";
+				exec "wait 600";
+				exec "RCON SAY ^2THE KAR98K SNIPER HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor karsoff backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor karsoff backcolor 0 0 0 .75 }
+		}
+
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			10 35 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"PANZERFAUST"
+			
+		}
+
+		itemDef
+		{
+			name			panon
+			visible			1
+			rect			112 35 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_panzerfaust 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE PANZERFAUST HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor panon backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor panon backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			panoff
+			visible			1
+			rect			85 35 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_panzerfaust 0";
+				exec "wait 600";
+				exec "RCON SAY ^2THE PANZERFAUST HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor panoff backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor panoff backcolor 0 0 0 .75 }
+		}
+
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			10 45 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"M1GARAND"
+			
+		}
+
+		itemDef
+		{
+			name			garon
+			visible			1
+			rect			112 45 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_m1garand 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE M1 GARAND HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor garon backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor garon backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			garoff
+			visible			1
+			rect			85 45 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_m1garand 0";
+				exec "wait 600";
+				exec "RCON SAY ^2THE M1 GARAND HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor garoff backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor garoff backcolor 0 0 0 .75 }
+		}
+	
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			10 55 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"M1CARBINE"
+			
+		}
+
+		itemDef
+		{
+			name			carbon
+			visible			1
+			rect			112 55 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_m1carbine 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE M1 CARBINE HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor carbon backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor carbon backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			carboff
+			visible			1
+			rect			85 55 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_m1carbine 0";
+				exec "wait 600";
+				exec "RCON SAY ^2THE M1 CARBINE HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor carboff backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor carboff backcolor 0 0 0 .75 }
+		}
+
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			10 65 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"ENFIELD"
+			
+		}
+
+		itemDef
+		{
+			name			enfon
+			visible			1
+			rect			112 65 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_enfield 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE ENFIELD HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor enfon backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor enfon backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			enfoff
+			visible			1
+			rect			85 65 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_enfield 0";
+				exec "wait 600";
+				exec "RCON SAY ^2THE ENFIELD HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor enfoff backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor enfoff backcolor 0 0 0 .75 }
+		}
+
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			10 75 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"NAGANT RIFLE"
+			
+		}
+
+		itemDef
+		{
+			name			nagon
+			visible			1
+			rect			112 75 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_nagant 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE MOSIN NAGANT HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor nagon backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor nagon backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			nagoff
+			visible			1
+			rect			85 75 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_nagant 0"; 
+				exec "wait 600";
+				exec "RCON SAY ^2THE MOSIN NAGANT HAS BEEN DISABLED";
+			}
+			mouseEnter	{ setitemcolor nagoff backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor nagoff backcolor 0 0 0 .75 }
+		}
+
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			10 85 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"KAR98 MAUSER"
+			
+		}
+
+		itemDef
+		{
+			name			mauon
+			visible			1
+			rect			112 85 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_kar98k 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE KAR98K MAUSER HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor mauon backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor mauon backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			mauoff
+			visible			1
+			rect			85 85 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_kar98k 0";
+				exec "wait 600";
+				exec "RCON SAY ^2THE KAR98K MAUSER HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor mauoff backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor mauoff backcolor 0 0 0 .75 }
+		}
+
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			10 95 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"THOMPSON"
+			
+		}
+
+		itemDef
+		{
+			name			thomon
+			visible			1
+			rect			112 95 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_thompson 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE THOMPSON HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor thomon backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor thomon backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			thomoff
+			visible			1
+			rect			85 95 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_thompson 0";
+				exec "wait 600";
+				exec "RCON SAY ^2THE THOMPSON HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor thomoff backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor thomoff backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			10 105 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"STEN"
+			
+		}
+
+		itemDef
+		{
+			name			steon
+			visible			1
+			rect			112 105 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_sten 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE STEN HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor steon backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor steon backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			steoff
+			visible			1
+			rect			85 105 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_sten 0";
+				exec "wait 600";
+				exec "RCON SAY ^2THE STEN HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor steoff backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor steoff backcolor 0 0 0 .75 }
+		}
+
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			10 115 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"PPSH"
+			
+		}
+
+		itemDef
+		{
+			name			ppshon
+			visible			1
+			rect			112 115 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_ppsh 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE PPSH HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor ppshon backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor ppshon backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			ppshoff
+			visible			1
+			rect			85 115 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_ppsh 0";
+				exec "wait 600";
+				exec "RCON SAY ^2THE PPSH HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor ppshoff backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor ppshoff backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			10 125 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"MP40"
+			
+		}
+
+		itemDef
+		{
+			name			mp40on
+			visible			1
+			rect			112 125 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_mp40 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE MP40 HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor mp40on backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor mp40on backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			mp40off
+			visible			1
+			rect			85 125 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_mp40 0";
+				exec "wait 600";
+				exec "RCON SAY ^2THE MP40 HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor mp40off backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor mp40off backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			10 135 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"BAR"
+			
+		}
+
+		itemDef
+		{
+			name			baron
+			visible			1
+			rect			112 135 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_bar 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE BAR HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor baron backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor baron backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			baroff
+			visible			1
+			rect			85 135 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_bar 0";
+				exec "wait 600";
+				exec "RCON SAY ^2THE BAR HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor baroff backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor baroff backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			10 145 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"BREN"
+			
+		}
+
+		itemDef
+		{
+			name			brenon
+			visible			1
+			rect			112 145 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_bren 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE BREN HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor brenon backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor brenon backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			brenoff
+			visible			1
+			rect			85 145 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_bren 0";
+				exec "wait 600";
+				exec "RCON SAY ^2THE BREN HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor brenoff backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor brenoff backcolor 0 0 0 .75 }
+		}
+
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			10 155 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"MP44"
+			
+		}
+
+		itemDef
+		{
+			name			mp44on
+			visible			1
+			rect			112 155 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_mp44 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE MP44 HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor mp44on backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor mp44on backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			mp44off
+			visible			1
+			rect			85 155 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_mp44 0";
+				exec "wait 600";
+				exec "RCON SAY ^2THE MP44 HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor mp44off backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor mp44off backcolor 0 0 0 .75 }
+		}
+		
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			10 165 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"FG42"
+			
+		}
+
+		itemDef
+		{
+			name			fg42on
+			visible			1
+			rect			112 165 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_fg42 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE FG42 HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor fg42on backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor fg42on backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			fg42off
+			visible			1
+			rect			85 165 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_fg42 0";
+				exec "wait 600";
+				exec "RCON SAY ^2THE FG42 HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor fg42off backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor fg42off backcolor 0 0 0 .75 }
+		}
+
+		
+    ////////////////////////////////////////////////
+		itemDef
+		{
+			name			"left_line"
+			visible			1
+			rect			142 5 1 200 //0 0 224 220 //192
+			origin			ORIGIN_WEAPONCONTROL
+			forecolor		1 1 1 1
+			backcolor		0 0 0 .75
+	 		style			WINDOW_STYLE_FILLED
+	   		border			1
+	   		bordercolor		1 1 0 1
+			decoration
+		}
+
+	////////////////////////////////////////////////
+       		itemDef
+		{
+			name			default
+			visible			1
+			rect			150 5 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"PISTOLS"
+			
+		}
+
+		itemDef
+		{
+			name			plon
+			visible			1
+			rect			242 5 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_pistols 1";
+				exec "wait 600";
+				exec "RCON SAY ^2PISTOLS HAVE BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor plon backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor plon backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			ploff
+			visible			1
+			rect			215 5 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_pistols 0";
+				exec "wait 600";
+				exec "RCON SAY ^2PISTOLS HAVE BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor ploff backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor ploff backcolor 0 0 0 .75 }
+		}
+
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			150 15 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"SATCHELS"
+			
+		}
+
+		itemDef
+		{
+			name			schon
+			visible			1
+			rect			242 15 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_satchel 1";
+				exec "wait 600";
+				exec "RCON SAY ^2SATCHEL CHARGES HAVE BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor schon backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor schon backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			schoff
+			visible			1
+			rect			215 15 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_satchel 0";
+				exec "wait 600";
+				exec "RCON SAY ^2SATCHEL CHARGES HAVE BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor schoff backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor schoff backcolor 0 0 0 .75 }
+		}
+
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			150 25 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"NADES"
+			
+		}
+
+		itemDef
+		{
+			name			hgon
+			visible			1
+			rect			242 25 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_grenades 1";
+				exec "wait 600";
+				exec "RCON SAY ^2GRENADES HAVE BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor hgon backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor hgon backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			hgoff
+			visible			1
+			rect			215 25 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_grenades 0";
+				exec "wait 600";
+				exec "RCON SAY ^2GRENADES HAVE BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor hgoff backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor hgoff backcolor 0 0 0 .75 }
+		}
+
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			150 35 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"SMOKE NADES"
+			
+		}
+
+		itemDef
+		{
+			name			shgon
+			visible			1
+			rect			242 35 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_smoke 1";
+				exec "wait 600";
+				exec "RCON SAY ^2SMOKE GRENADES HAVE BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor shgon backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor shgon backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			shgoff
+			visible			1
+			rect			215 35 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_smoke 0";
+				exec "wait 600";
+				exec "RCON SAY ^2SMOKE GRENADES HAVE BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor shgoff backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor shgoff backcolor 0 0 0 .75 }
+		}
+
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			150 45 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"FL THROWER"
+			
+		}
+
+		itemDef
+		{
+			name			flmon
+			visible			1
+			rect			242 45 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_flamethrower 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE FLAMETHROWER HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor flmon backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor flmon backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			flmoff
+			visible			1
+			rect			215 45 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_flamethrower 0";
+				exec "wait 600";
+				exec "RCON SAY ^2THE FLAMETHROWER HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor flmoff backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor flmoff backcolor 0 0 0 .75 }
+		}
+	
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			150 55 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"ARTILLERY"
+			
+		}
+
+		itemDef
+		{
+			name			arton
+			visible			1
+			rect			242 55 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_artillery 1";
+				exec "wait 600";
+				exec "RCON SAY ^2ARTILLERY HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor arton backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor arton backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			artoff
+			visible			1
+			rect			215 55 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_artillery 0";
+				exec "wait 600";
+				exec "RCON SAY ^2ARTILLERY HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor artoff backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor artoff backcolor 0 0 0 .75 }
+		}
+
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			150 65 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"BAZOOKA"
+			
+		}
+
+		itemDef
+		{
+			name			bazon
+			visible			1
+			rect			242 65 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_bazooka 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE BAZOOKA HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor bazon backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor bazon backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			bazoff
+			visible			1
+			rect			215 65 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_bazooka 0";
+				exec "wait 600";
+				exec "RCON SAY ^2THE BAZOOKA HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor bazoff backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor bazoff backcolor 0 0 0 .75 }
+		}
+
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			150 75 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"MG34"
+			
+		}
+
+		itemDef
+		{
+			name			mg34on
+			visible			1
+			rect			242 75 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_mg34 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE MG34 HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor mg34on backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor mg34on backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			mg34off
+			visible			1
+			rect			215 75 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_mg34 0"; 
+				exec "wait 600";
+				exec "RCON SAY ^2THE MG34 HAS BEEN DISABLED";
+			}
+			mouseEnter	{ setitemcolor mg34off backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor mg34off backcolor 0 0 0 .75 }
+		}
+
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			150 85 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"DP28"
+			
+		}
+
+		itemDef
+		{
+			name			dp28on
+			visible			1
+			rect			242 85 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_dp28 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE DP28 HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor dp28on backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor dp28on backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			dp28off
+			visible			1
+			rect			215 85 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_dp28 0";
+				exec "wait 600";
+				exec "RCON SAY ^2THE DP28 HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor dp28off backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor dp28off backcolor 0 0 0 .75 }
+		}
+
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			150 95 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"30CAL"
+			
+		}
+
+		itemDef
+		{
+			name			calon
+			visible			1
+			rect			242 95 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_mg30cal 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE 30 CAL MACHINE GUN HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor calon backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor calon backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			caloff
+			visible			1
+			rect			215 95 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_mg30cal 0";
+				exec "wait 600";
+				exec "RCON SAY ^2THE 30 CAL MACHINE GUN HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor caloff backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor caloff backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			150 105 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"GEWEHR43"
+			
+		}
+
+		itemDef
+		{
+			name			g43on
+			visible			1
+			rect			242 105 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_gewehr43 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE GEWEHR43 HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor g43on backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor g43on backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			g43off
+			visible			1
+			rect			215 105 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_gewehr43 0";
+				exec "wait 600";
+				exec "RCON SAY ^2THE GEWEHR43 HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor g43off backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor g43off backcolor 0 0 0 .75 }
+		}
+
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			150 115 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"SVT-40"
+			
+		}
+
+		itemDef
+		{
+			name			svt40on
+			visible			1
+			rect			242 115 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_svt40 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE SVT-40 HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor svt40on backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor svt40on backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			svt40off
+			visible			1
+			rect			215 115 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_svt40 0";
+				exec "wait 600";
+				exec "RCON SAY ^2THE SVT-40 HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor svt40off backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor svt40off backcolor 0 0 0 .75 }
+		}
+ //////////////////////////////////////
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			150 145 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"BOLT-ACTION RIFLES ONLY"
+			
+		}
+
+		itemDef
+		{
+			name			boltonlyon
+			visible			1
+			rect			175 160 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon set scr_force_bolt_rifles 1";
+				exec "wait 600";
+				exec "RCON SAY ^2BOLT-ACTION RIFLES ONLY HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor boltonlyon backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor boltonlyon backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			boltonlyoff
+			visible			1
+			rect			202 160 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon set scr_force_bolt_rifles 0";
+				exec "wait 600";
+				exec "RCON SAY ^2BOLT-ACTION RIFLES ONLY HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor boltonlyoff backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor boltonlyoff backcolor 0 0 0 .75 }
+		}
+
+
+ //////////////////////////////////////
+		itemDef
+		{
+			name			"right_line"
+			visible			1
+			rect			275 5 1 200 //0 0 224 220 //192
+			origin			ORIGIN_WEAPONCONTROL
+			forecolor		1 1 1 1
+			backcolor		0 0 0 .75
+	 		style			WINDOW_STYLE_FILLED
+	   		border			1
+	   		bordercolor		1 1 0 1
+			decoration
+		}
+ //////////////////////////////////////
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			320 5 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"^5TANKS"
+			
+		}
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			290 20 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"^3All Tanks"
+			
+		}
+
+		itemDef
+		{
+			name			aton
+			visible			1
+			rect			361 20 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_tanks 1";
+				exec "wait 600";
+				exec "RCON SAY ^2ALL TANKS HAVE BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor aton backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor aton backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			atoff
+			visible			1
+			rect			335 20 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_tanks 0";
+				exec "wait 600";
+				exec "RCON SAY ^2ALL TANKS HAVE BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor atoff backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor atoff backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			290 30 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"SU-152"
+			
+		}
+
+		itemDef
+		{
+			name			s152on
+			visible			1
+			rect			361 30 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_su152 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE SU-152 HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor s152on backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor s152on backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			s152off
+			visible			1
+			rect			335 30 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_su152 0";
+				exec "wait 600";
+				exec "RCON SAY ^2THE SU-152 HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor s152off backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor s152off backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			290 40 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"SHERMAN"
+			
+		}
+
+		itemDef
+		{
+			name			sheron
+			visible			1
+			rect			361 40 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_sherman 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE SHERMAN HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor sheron backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor sheron backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			sheroff
+			visible			1
+			rect			335 40 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_sherman 0";
+				exec "wait 600";
+				exec "RCON SAY ^2THE SHERMAN HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor sheroff backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor sheroff backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			290 50 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"T-34"
+			
+		}
+
+		itemDef
+		{
+			name			t34on
+			visible			1
+			rect			361 50 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_t34 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE T-34 HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor t34on backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor t34on backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			t34off
+			visible			1
+			rect			335 50 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_t34 0";
+				exec "wait 600";
+				exec "RCON SAY ^2THE T-34 HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor t34off backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor t34off backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			290 60 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"PANZER"
+			
+		}
+
+		itemDef
+		{
+			name			pnzon
+			visible			1
+			rect			361 60 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_panzeriv 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE PANZER HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor pnzon backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor pnzon backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			pnzoff
+			visible			1
+			rect			335 60 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_panzeriv 0";
+				exec "wait 600";
+				exec "RCON SAY ^2THE PANZER HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor pnzoff backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor pnzoff backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			290 70 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"ELEFANT"
+			
+		}
+
+		itemDef
+		{
+			name			efon
+			visible			1
+			rect			361 70 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_elefant 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE ELEFANT HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor efon backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor efon backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			efoff
+			visible			1
+			rect			335 70 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_elefant 0";
+				exec "wait 600";
+				exec "RCON SAY ^2THE ELEFANT HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor efoff backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor efoff backcolor 0 0 0 .75 }
+		}
+
+ //////////////////////////////////////
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			320 90 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"^5JEEPS"
+			
+		}
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			290 105 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"^3All Jeeps"
+			
+		}
+
+		itemDef
+		{
+			name			ajpon
+			visible			1
+			rect			361 105 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_jeeps 1";
+				exec "wait 600";
+				exec "RCON SAY ^2ALL JEEPS HAVE BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor ajpon backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor ajpon backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			ajpoff
+			visible			1
+			rect			335 105 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_jeeps 0";
+				exec "wait 600";
+				exec "RCON SAY ^2ALL JEEPS HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor ajpoff backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor ajpoff backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			290 115 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"HORCH"
+			
+		}
+
+		itemDef
+		{
+			name			hoon
+			visible			1
+			rect			361 115 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_horch 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE HORCH HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor hoon backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor hoon backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			hooff
+			visible			1
+			rect			335 115 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_forch 0";
+				exec "wait 600";
+				exec "RCON SAY ^2THE HORCH HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor hooff backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor hooff backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			290 125 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"GAZ67b"
+			
+		}
+
+		itemDef
+		{
+			name			gazon
+			visible			1
+			rect			361 125 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_gaz67b 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE GAZ67b HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor gazon backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor gazon backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			gazoff
+			visible			1
+			rect			335 125 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_gaz67b 0";
+				exec "wait 600";
+				exec "RCON SAY ^2THE GAZ67b HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor gazoff backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor gazoff backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			290 135 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"JEEP"
+			
+		}
+
+		itemDef
+		{
+			name			jpon
+			visible			1
+			rect			361 135 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_willyjeep 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE WILLY JEEP HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor jpon backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor jpon backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			jpoff
+			visible			1
+			rect			335 135 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_willyjeep 0";
+				exec "wait 600";
+				exec "RCON SAY ^2THE WILLY JEEP HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor jpoff backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor jpoff backcolor 0 0 0 .75 }
+		}
+
+ //////////////////////////////////////
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			320 155 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"^5OTHER"
+			
+		}
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			290 170 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"Flak88"
+			
+		}
+
+		itemDef
+		{
+			name			flakon
+			visible			1
+			rect			361 170 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_flak88 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE FLAK88 HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor flakon backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor flakon backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			flakoff
+			visible			1
+			rect			335 170 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_flak88 0";
+				exec "wait 600";
+				exec "RCON SAY ^2THE FLAK88 HAS BEEN DISABLED"; 
+			}
+			mouseEnter	{ setitemcolor flakoff backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor flakoff backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			290 180 75 12
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		0
+			textaligny		10 
+			text			"MG42"
+			
+		}
+
+		itemDef
+		{
+			name			mg42on
+			visible			1
+			rect			361 180 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		5
+			textaligny		7 
+			text			"ON"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_mg42 1";
+				exec "wait 600";
+				exec "RCON SAY ^2THE MG42 HAS BEEN ENABLED";
+			}
+			mouseEnter	{ setitemcolor mg42on backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor mg42on backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			mg42off
+			visible			1
+			rect			335 180 25 10
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.18
+			textalignx		2
+			textaligny		7 
+			text			"OFF"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon scr_allow_mg42 0";
+				exec "wait 600";
+				exec "RCON SAY ^2THE MG42 HAS BEEN DISABLED";
+			}
+			mouseEnter	{ setitemcolor mg42off backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor mg42off backcolor 0 0 0 .75 }
+		}
+
+ //////////////////////////////////////
+ // ORIGINALS
+               
+		
+
+
+		
+  		
+			
+		////////////////////////////////////////////
+		
+
+		
+		
+		
+  					
+		
+				
+		itemDef
+		{
+			name			maprestart 
+			visible			1
+			rect			320 203 75 15 //75 7 75 15
+			origin			ORIGIN_WEAPONCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			forecolor		1 1 1 1  
+			textscale		.20
+			textalignx		9.5
+			textaligny		10 
+			text			"^3Restart Map"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon say ^3MAP IS RESTARTING";
+				exec "wait 600";
+				exec "rcon map_restart"; 
+			}
+			mouseEnter		{ setitemcolor maprestart backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor maprestart backcolor 0 0 0 .75 }
+		}		
+		
+		
+		itemDef
+		{
+			name			back
+			visible			1
+			rect			2 200 40 18 //170 75 49 20
+			origin			ORIGIN_WEAPONCONTROL
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textscale		.20
+			text			"BACK"
+			textalignx		4 
+			textaligny		12
+			action
+			{
+				play "mouse_click";
+				close weaponcontrol;
+				open rconmenu;
+			}
+			mouseEnter	{ setitemcolor back backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor back backcolor 0 0 0 .75 }
+
+		}
+
+		itemDef
+		{
+			name			btgame
+			visible			1
+			rect			45 200 85 18 //170 135 49 20
+			origin			ORIGIN_WEAPONCONTROL
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			textscale		.185 
+			text			"BACK TO GAME"
+			textalignx		8 
+			textaligny		12
+			action
+			{
+				play "mouse_click";
+				close weaponcontrol;
+				ingameclose main;
+			}
+			mouseEnter	{ setitemcolor btgame backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor btgame backcolor 0 0 0 .75 }
+			cvarTest "cl_ingame"
+			showCvar {"1"}
+
+		}
+		
+		
+	}
+}

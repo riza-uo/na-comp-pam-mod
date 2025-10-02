@@ -1,0 +1,2114 @@
+#include "ui_mp/menudef.h"
+
+#define ORIGIN_BANNINGCONTROL		32 256
+
+{
+	menuDef
+	{
+		name			"banningcontrol"
+		fullscreen		0
+		rect			0 0 640 480
+		focuscolor		UI_FOCUS_COLOR
+		disablecolor		0 0 0 0
+ 		style			WINDOW_STYLE_EMPTY
+   		border			0
+
+		onOpen
+		{
+			setCvar cl_bypassMouseInput "0"
+		}
+		onClose
+		{
+			setCvar cl_bypassMouseInput "0"
+		}
+
+		itemDef
+		{
+			name			"window_background"
+			visible			1
+			rect			0 0 224 220
+			origin			ORIGIN_BANNINGCONTROL
+			forecolor		1 1 1 1
+			backcolor		0 0 0 .75
+	 		style			WINDOW_STYLE_FILLED
+	   		border			1
+	   		bordercolor		1 1 1 1
+			decoration
+		}
+
+		itemDef
+		{
+			name			"window"
+			visible			1
+			rect			0 -32 128 32
+			origin			ORIGIN_BANNINGCONTROL
+			forecolor		1 1 1 1
+			backcolor		0 0 0 .75
+			style			WINDOW_STYLE_FILLED
+			border			1
+			bordercolor		1 1 1 1
+			type			ITEM_TYPE_TEXT
+			text			"BANNING CONTROL"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		4.5
+			textaligny		20
+			decoration
+		}
+	
+		
+		
+		itemDef
+		{
+			name			status
+			visible			1
+			rect			10 5 75 15
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			forecolor		1 1 1 1  
+			textscale		.20
+			textalignx		12
+			textaligny		10 
+			text			"^3Player List"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_plist"; 
+				exec "toggleconsole";
+			}
+			mouseEnter		{ setitemcolor status backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor status backcolor 0 0 0 .75 }
+		}
+		
+
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			10 25 75 20
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1  
+			textfont		UI_FONT_NORMAL
+			textscale		.20
+			textalignx		5
+			textaligny		12 
+			text			"Long-Term Kick (Temp Ban) Client:"
+			decoration
+		}
+
+		itemDef
+		{
+			name			c0
+			visible			1
+			rect			10 40 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"0"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 0 240";
+			}
+			mouseEnter		{ setitemcolor c0 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c0 backcolor 0 0 0 .75 }
+
+		}
+		itemDef
+		{
+			name			c1
+			visible			1
+			rect			21 40 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"01"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 1 240";
+			}
+			mouseEnter		{ setitemcolor c1 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c1 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			c2
+			visible			1
+			rect			32 40 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"02"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 2 240";
+			}
+			mouseEnter		{ setitemcolor c2 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c2 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			c3
+			visible			1
+			rect			43 40 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"03"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 3 240";
+			}
+			mouseEnter		{ setitemcolor c3 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c3 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			c4
+			visible			1
+			rect			54 40 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"04"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 4 240";
+			}
+			mouseEnter		{ setitemcolor c4 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c4 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			c5
+			visible			1
+			rect			65 40 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"05"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 5 240";
+			}
+			mouseEnter		{ setitemcolor c5 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c5 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			c6
+			visible			1
+			rect			76 40 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"06"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 6 240";
+			}
+			mouseEnter		{ setitemcolor c6 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c6 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			c7
+			visible			1
+			rect			87 40 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"07"
+			action
+			{ 
+				play "mouse_click"; 
+				exec "rcon pb_sv_kick 7 240";
+			}
+			mouseEnter		{ setitemcolor c7 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c7 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			c8
+			visible			1
+			rect			98 40 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"08"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 8 240";
+			}
+			mouseEnter		{ setitemcolor c8 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c8 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			c9
+			visible			1
+			rect			109 40 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"09"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 9 240";
+			}
+			mouseEnter		{ setitemcolor c9 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c9 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			c10
+			visible			1
+			rect			120 40 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"10"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 10 240";
+			}
+			mouseEnter		{ setitemcolor c10 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c10 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			c11
+			visible			1
+			rect			131 40 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"11"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 11 240";
+			}
+			mouseEnter		{ setitemcolor c11 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c11 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			c12
+			visible			1
+			rect			142 40 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"12"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 12 240";
+			}
+			mouseEnter		{ setitemcolor c12 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c12 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			c13
+			visible			1
+			rect			153 40 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"13"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 13 240";
+			}
+			mouseEnter		{ setitemcolor c13 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c13 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			c14
+			visible			1
+			rect			164 40 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"14"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 14 240";
+			}
+			mouseEnter		{ setitemcolor c14 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c14 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			c15
+			visible			1
+			rect			175 40 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"15"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 15 240";
+			}
+			mouseEnter		{ setitemcolor c15 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c15 backcolor 0 0 0 .75 }
+
+		}
+		itemDef
+		{
+			name			c16
+			visible			1
+			rect			186 40 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"16"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 16 240";
+			}
+			mouseEnter		{ setitemcolor c16 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c16 backcolor 0 0 0 .75 }
+
+		}
+		itemDef
+		{
+			name			c17
+			visible			1
+			rect			10 50 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"17"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 17 240";
+			}
+			mouseEnter		{ setitemcolor c17 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c17 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			c18
+			visible			1
+			rect			21 50 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"18"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 18 240";
+			}
+			mouseEnter		{ setitemcolor c18 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c18 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			c19
+			visible			1
+			rect			32 50 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"19"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 19 240";
+			}
+			mouseEnter		{ setitemcolor c19 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c19 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			c20
+			visible			1
+			rect			43 50 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"20"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 20 240";
+			}
+			mouseEnter		{ setitemcolor c20 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c20 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			c21
+			visible			1
+			rect			54 50 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"21"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 21 240";
+			}
+			mouseEnter		{ setitemcolor c21 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c21 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			c22
+			visible			1
+			rect			65 50 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"22"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 22 240";
+			}
+			mouseEnter		{ setitemcolor c22 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c22 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			c23
+			visible			1
+			rect			76 50 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"23"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 23 240";
+			}
+			mouseEnter		{ setitemcolor c23 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c23 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			c24
+			visible			1
+			rect			87 50 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"24"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 24 240";
+			}
+			mouseEnter		{ setitemcolor c24 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c24 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			c25
+			visible			1
+			rect			98 50 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"25"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 25 240";
+			}
+			mouseEnter		{ setitemcolor c25 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c25 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			c26
+			visible			1
+			rect			109 50 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"26"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 26 240";
+			}
+			mouseEnter		{ setitemcolor c26 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c26 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			c27
+			visible			1
+			rect			120 50 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"27"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 27 240";
+			}
+			mouseEnter		{ setitemcolor c27 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c27 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			c28
+			visible			1
+			rect			131 50 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"28"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 28 240";
+			}
+			mouseEnter		{ setitemcolor c28 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c28 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			c29
+			visible			1
+			rect			142 50 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"29"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 29 240";
+			}
+			mouseEnter		{ setitemcolor c29 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c29 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			c30
+			visible			1
+			rect			153 50 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.147
+			textalignx		1
+			textaligny		6 
+			text			"30"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 30 240";
+			}
+			mouseEnter		{ setitemcolor c30 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c30 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			c31
+			visible			1
+			rect			164 50 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.147
+			textalignx		1
+			textaligny		6 
+			text			"31"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 31 240";
+			}
+			mouseEnter		{ setitemcolor c31 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c31 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			c32
+			visible			1
+			rect			175 50 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.147
+			textalignx		1
+			textaligny		6 
+			text			"32"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 32 240";
+			}
+			mouseEnter		{ setitemcolor c32 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c32 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			c33
+			visible			1
+			rect			186 50 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.147
+			textalignx		1
+			textaligny		6 
+			text			"33"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_kick 33 240";
+			}
+			mouseEnter		{ setitemcolor c33 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor c33 backcolor 0 0 0 .75 }
+		}
+		
+		itemDef
+		{
+			name			retbanlist 
+			visible			1
+			rect			10 75 75 15
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			forecolor		1 1 1 1  
+			textscale		.20
+			textalignx		4
+			textaligny		10 
+			text			"^3View Ban List"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_banlist"; 
+				exec "toggleconsole";
+			}
+			mouseEnter		{ setitemcolor retbanlist backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor retbanlist backcolor 0 0 0 .75 }
+		}
+		
+		itemDef
+		{
+			name			emptbanlist 
+			visible			1
+			rect			138 75 75 15
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			forecolor		1 1 1 1  
+			textscale		.20
+			textalignx		3
+			textaligny		10 
+			text			"^3Empty Ban List"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon PB_SV_BanEmpty";
+				exec "wait 700"; 
+				exec "rcon PB_SV_BanLoad";
+				exec "wait 700";
+				close banningcontrol;
+				ingameclose main;
+			}
+			mouseEnter		{ setitemcolor emptbanlist backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor emptbanlist backcolor 0 0 0 .75 }
+		}
+		
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			10 105 75 20
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1  
+			textfont		UI_FONT_NORMAL
+			textscale		.20
+			textalignx		5
+			textaligny		12 
+			text			"Permanently Ban Client:"
+			decoration
+		}
+
+		itemDef
+		{
+			name			s0
+			visible			1
+			rect			10 120 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"0"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 0";
+			}
+			mouseEnter		{ setitemcolor s0 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s0 backcolor 0 0 0 .75 }
+
+		}
+		itemDef
+		{
+			name			s1
+			visible			1
+			rect			21 120 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"01"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 1";
+			}
+			mouseEnter		{ setitemcolor s1 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s1 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			s2
+			visible			1
+			rect			32 120 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"02"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 2";
+			}
+			mouseEnter		{ setitemcolor s2 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s2 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			s3
+			visible			1
+			rect			43 120 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"03"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 3";
+			}
+			mouseEnter		{ setitemcolor s3 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s3 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			s4
+			visible			1
+			rect			54 120 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"04"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 4";
+			}
+			mouseEnter		{ setitemcolor s4 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s4 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			s5
+			visible			1
+			rect			65 120 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"05"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 5";
+			}
+			mouseEnter		{ setitemcolor s5 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s5 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			s6
+			visible			1
+			rect			76 120 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"06"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 6";
+			}
+			mouseEnter		{ setitemcolor s6 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s6 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			s7
+			visible			1
+			rect			87 120 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"07"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 7";
+			}
+			mouseEnter		{ setitemcolor s7 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s7 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			s8
+			visible			1
+			rect			98 120 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"08"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 8";
+			}
+			mouseEnter		{ setitemcolor s8 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s8 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			s9
+			visible			1
+			rect			109 120 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"09"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 9";
+			}
+			mouseEnter		{ setitemcolor s9 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s9 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			s10
+			visible			1
+			rect			120 120 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"10"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 10";
+			}
+			mouseEnter		{ setitemcolor s10 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s10 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			s11
+			visible			1
+			rect			131 120 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"11"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 11";
+			}
+			mouseEnter		{ setitemcolor s11 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s11 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			s12
+			visible			1
+			rect			142 120 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"12"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 12";
+			}
+			mouseEnter		{ setitemcolor s12 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s12 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			s13
+			visible			1
+			rect			153 120 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"13"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 13";
+			}
+			mouseEnter		{ setitemcolor s13 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s13 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			s14
+			visible			1
+			rect			164 120 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"14"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 14";
+			}
+			mouseEnter		{ setitemcolor s14 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s14 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			s15
+			visible			1
+			rect			175 120 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"15"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 15";
+			}
+			mouseEnter		{ setitemcolor s15 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s15 backcolor 0 0 0 .75 }
+
+		}
+		itemDef
+		{
+			name			s16
+			visible			1
+			rect			186 120 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"16"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 16";
+			}
+			mouseEnter		{ setitemcolor s16 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s16 backcolor 0 0 0 .75 }
+
+		}
+		itemDef
+		{
+			name			s17
+			visible			1
+			rect			10 130 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"17"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 17";
+			}
+			mouseEnter		{ setitemcolor s17 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s17 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			s18
+			visible			1
+			rect			21 130 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"18"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 18";
+			}
+			mouseEnter		{ setitemcolor s18 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s18 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			s19
+			visible			1
+			rect			32 130 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"19"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 19";
+			}
+			mouseEnter		{ setitemcolor s19 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s19 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			s20
+			visible			1
+			rect			43 130 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"20"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 20";
+			}
+			mouseEnter		{ setitemcolor s20 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s20 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			s21
+			visible			1
+			rect			54 130 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"21"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 21";
+			}
+			mouseEnter		{ setitemcolor s21 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s21 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			s22
+			visible			1
+			rect			65 130 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"22"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 22";
+			}
+			mouseEnter		{ setitemcolor s22 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s22 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			s23
+			visible			1
+			rect			76 130 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"23"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 23";
+			}
+			mouseEnter		{ setitemcolor s23 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s23 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			s24
+			visible			1
+			rect			87 130 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"24"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 24";
+			}
+			mouseEnter		{ setitemcolor s24 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s24 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			s25
+			visible			1
+			rect			98 130 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"25"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 25";
+			}
+			mouseEnter		{ setitemcolor s25 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s25 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			s26
+			visible			1
+			rect			109 130 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"26"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 26";
+			}
+			mouseEnter		{ setitemcolor s26 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s26 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			s27
+			visible			1
+			rect			120 130 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"27"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 27";
+			}
+			mouseEnter		{ setitemcolor s27 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s27 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			s28
+			visible			1
+			rect			131 130 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"28"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 28";
+			}
+			mouseEnter		{ setitemcolor s28 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s28 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			s29
+			visible			1
+			rect			142 130 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.15
+			textalignx		1
+			textaligny		6 
+			text			"29"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 29";
+			}
+			mouseEnter		{ setitemcolor s29 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s29 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			s30
+			visible			1
+			rect			153 130 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.147
+			textalignx		1
+			textaligny		6 
+			text			"30"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 30";
+			}
+			mouseEnter		{ setitemcolor s30 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s30 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			s31
+			visible			1
+			rect			164 130 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.147
+			textalignx		1
+			textaligny		6 
+			text			"31"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 31";
+			}
+			mouseEnter		{ setitemcolor s31 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s31 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			s32
+			visible			1
+			rect			175 130 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.147
+			textalignx		1
+			textaligny		6 
+			text			"32"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 32";
+			}
+			mouseEnter		{ setitemcolor s32 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s32 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			s33
+			visible			1
+			rect			186 130 12 10
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1 
+			textfont		UI_FONT_NORMAL
+			textscale		.147
+			textalignx		1
+			textaligny		6 
+			text			"33"
+			action
+			{ 
+				play "mouse_click";
+				exec "rcon pb_sv_ban 33";
+			}
+			mouseEnter		{ setitemcolor s33 backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor s33 backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			default
+			visible			1
+			rect			10 150 85 15
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_TEXT
+			forecolor		1 1 1 1  
+			textfont		UI_FONT_NORMAL
+			textscale		.20
+			textalignx		5
+			textaligny		12 
+			text			"Start Demo Record:"
+			decoration
+		}
+		itemDef
+		{
+			name			startdemo 
+			visible			1
+			rect			10 165 30 15
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			forecolor		1 1 1 1  
+			textscale		.20
+			textalignx		3
+			textaligny		10 
+			text			"^3Start"
+			action
+			{ 
+				play "mouse_click";
+				exec "record";
+			}
+			mouseEnter		{ setitemcolor startdemo backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor startdemo backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			stopdemo 
+			visible			1
+			rect			45 165 30 15
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			forecolor		1 1 1 1  
+			textscale		.20
+			textalignx		3
+			textaligny		10 
+			text			"^3Stop"
+			action
+			{ 
+				play "mouse_click";
+				exec "stoprecord";
+			}
+			mouseEnter		{ setitemcolor stopdemo backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor stopdemo backcolor 0 0 0 .75 }
+		}
+		 itemDef
+		{
+			name			demoss 
+			visible			1
+			rect			80 165 85 15
+			origin			ORIGIN_BANNINGCONTROL
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR 
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			forecolor		1 1 1 1  
+			textscale		.195
+			textalignx		3
+			textaligny		10 
+			text			"^3Take Screenshot"
+			action
+			{ 
+				play "mouse_click";
+				close banningcontrol;
+				ingameclose main;
+				exec "wait 350";
+				exec "screenshotjpeg";
+			}
+			mouseEnter		{ setitemcolor demoss backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor demoss backcolor 0 0 0 .75 }
+		}
+		itemDef
+		{
+			name			back
+			visible			1
+			rect			2 200 40 18
+			origin			ORIGIN_BANNINGCONTROL
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR // 1 1 1 1
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			//textfont		UI_FONT_NORMAL
+			textscale		.20
+			text			"BACK"
+			textalignx		4
+			textaligny		12
+			action
+			{
+				play "mouse_click";
+				close banningcontrol;
+				open clientcontrol;
+			}
+			mouseEnter		{ setitemcolor back backcolor 0 0 1 .65;play "mouse_over"; }
+			mouseExit		{ setitemcolor back backcolor 0 0 0 .75 }
+
+		}
+		itemDef
+		{
+			name			btgame
+			visible			1
+			rect			75 200 85 18
+			origin			ORIGIN_BANNINGCONTROL
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			style			UI_BUTTON_STYLE
+			textstyle		UI_BUTTON_TEXT_STYLE
+			forecolor		UI_BUTTON_TEXT_COLOR // 1 1 1 1
+			backcolor		0 0 0 .75
+			border			UI_BUTTON_BORDER
+			bordercolor		1 1 1 1
+			//textfont		UI_FONT_NORMAL
+			textscale		.185
+			text			"BACK TO GAME"
+			textalignx		8
+			textaligny		12
+			action
+			{
+				play "mouse_click";
+				close banningcontrol;
+				ingameclose main;
+			}
+			mouseEnter	{ setitemcolor btgame backcolor 0 0 1 .65; play "mouse_over"; }
+			mouseExit	{ setitemcolor btgame backcolor 0 0 0 .75 }
+			cvarTest "cl_ingame"
+			showCvar {"1"}
+		}
+
+	}
+}
