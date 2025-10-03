@@ -143,6 +143,7 @@ PamMain()
 		ruleset = getCvar("pam_mode");
 		switch(ruleset)
 		{
+		
 		case "twl_ladder":
 			thread maps\mp\gametypes\rules\_twl_ladder_sd_rules::Rules();
 			break;
@@ -216,6 +217,8 @@ PamMain()
 		setcvar("sv_BombDefuseTime", "10");
 	if ( getcvar( "sv_BombTimer" ) == "" )
 		setcvar("sv_BombTimer", "60");
+	if(getcvar("sv_showBombTimer") == "" )
+		setcvar("sv_showBombTimer", "0");
 
 	/* Set up Level variables */
 	// level settings
@@ -245,6 +248,7 @@ PamMain()
 	level.planttime = getcvarFloat("sv_BombPlantTime");
 	level.defusetime = getcvarFloat("sv_BombDefuseTime");
 	level.countdowntime = getcvarFloat("sv_BombTimer");
+	level.countdownclock = getcvar("sv_ShowBombTimer");
 	level.overtime = 0;	//Makes sure OT settings get loaded after defaults loaded
 	level.rdyup = 0;
 	level.hithalftime = 0;
@@ -2958,6 +2962,22 @@ updateGametypeCvars()
 			level.countdowntime = countdowntime;
 			iprintln("^3Bomb Timer has been changed to ^5" + countdowntime);
 		}
+		
+		countdownclock = getcvarint("sv_ShowBombTimer");
+		if (countdownclock != level.countdownclock)
+		{
+			level.countdownclock = countdownclock;
+			if (countdownclock == 1)
+			{
+				iprintln("^5Countdown Clock ^7has been turned ^5ON");
+				iprintln("^9sv_ShowBombTimer 1");
+			}
+			else
+			{
+				iprintln("^3Countdown Clock ^7has been turned ^1OFF");
+				iprintln("^9sv_ShowBombTimer 0");
+			}
+		}
 
 		hdrop = getcvarint("scr_drophealth");
 		if (hdrop != level.drophealth)
@@ -3214,8 +3234,8 @@ updateTeamStatus()
 bombzones()
 {
 	level.barsize = 288;
-	level.planttime = 5;		// seconds to plant a bomb
-	level.defusetime = 10;		// seconds to defuse a bomb
+	//level.planttime = 5;		// seconds to plant a bomb
+	//level.defusetime = 10;		// seconds to defuse a bomb
 
 	bombtrigger = getent("bombtrigger", "targetname");
 	bombtrigger maps\mp\_utility::triggerOff();
@@ -3357,6 +3377,20 @@ bombzone_think(bombzone_other)
 					level notify("bomb_planted");
 					level.clock destroy();
 					
+					//CODUO NA COMP PAM ADDITION - Show Bomb Timer
+					
+					if(level.countdownclock)
+					{
+						level.clock = newHudElem();
+						level.clock.x = 320;
+						level.clock.y = 460;
+						level.clock.alignX = "center";
+						level.clock.alignY = "middle";
+						level.clock.font = "bigfixed";
+						level.clock.color = (1, 1, 0);
+						level.clock setTimer(level.countdowntime * 1);
+					}
+					
 					return;	//TEMP, script should stop after the wait .05
 				}
 				else
@@ -3396,7 +3430,17 @@ bomb_countdown()
 	
 	// set the countdown time
 	wait level.countdowntime;
-		
+	
+	
+	//CODUO NA COMP PAM ADDITION - make timer red if visible
+	if(level.countdownclock != 0)
+	{
+		if(isdefined(level.clock))
+		level.clock.color = (1, 0, 0);
+		wait 1;
+	}
+
+	
 	// bomb timer is up
 	objective_delete(0);
 	
@@ -3513,6 +3557,14 @@ bomb_think()
 					self notify("bomb_defused");
 					level.bombmodel setmodel("xmodel/mp_bomb1");
 					level.bombmodel stopLoopSound();
+					
+					//CODUO NA COMP PAM ADDITION - Delete countdown clock if enabled
+					if(level.countdownclock)
+					{
+						if(isdefined(level.clock))
+						level.clock destroy();
+					}
+					
 					self delete();
 
 					announcement(&"SD_EXPLOSIVESDEFUSED");
