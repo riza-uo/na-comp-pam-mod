@@ -143,7 +143,6 @@ PamMain()
 		ruleset = getCvar("pam_mode");
 		switch(ruleset)
 		{
-		
 		case "twl_ladder":
 			thread maps\mp\gametypes\rules\_twl_ladder_sd_rules::Rules();
 			break;

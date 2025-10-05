@@ -19,7 +19,7 @@ Rules()
 	if (getcvarint("g_ot_active") > 0)
 	{
 		setcvar("scr_sd_half_round" , "3");	// Switch AFTER this round.
-
+		setcvar("scr_sd_end_score" , "4");		// End Map AFTER this total score.
 		setcvar("scr_sd_end_round" , "6");		// End Map AFTER this round.
 	}
 
