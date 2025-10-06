@@ -3,9 +3,6 @@ name: Create PK3 and Publish Release
 # This action triggers on every push to the main branch.
 # It also allows you to run it manually from the Actions tab.
 on:
-  pull_request:
-    branches:
-      - main
   workflow_dispatch:
 
 jobs:
