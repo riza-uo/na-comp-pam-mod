@@ -21,7 +21,7 @@ jobs:
 
       # Step 2: Create the zip file
       - name: zip repository contents into pk3 file
-        run: zip -r na_comp_pam_mod.pk3 . -x ".git*" "README.md" ".github/*"
+        run: zip -r z_svr_na_comp_pam.pk3 . -x ".git*" "README.md" ".github/*"
 
       # Step 3: Create a new GitHub Release and upload the zip file as an asset
       - name: Create Release and Upload Asset
