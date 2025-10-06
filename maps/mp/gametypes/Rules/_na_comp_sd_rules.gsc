@@ -208,10 +208,10 @@ Rules()
 	// *****************************************************
 	// ****************** Timeouts *************************
 	// *****************************************************
-	setcvar("g_timeoutsAllowed", "1"); //The number of timeouts allowed per side. 
-	setcvar("g_timeoutLength", "3"); //The length of each timeout. 
-	setcvar("g_timeoutRecovery", "0"); //The length of the preparation period which occurs after a time-in is called, or after a timeout expires.  This recovery period is used to alert all players that play is about to begin. 
-	setcvar("g_timeoutBank", "9"); //The total amount of time a team can spend in timeout.
+	setcvar("g_timeoutsAllowed", "3"); //The number of timeouts allowed per side.
+	setcvar("g_timeoutLength", "60000"); //The length of each timeout.
+	setcvar("g_timeoutRecovery", "10000"); //The length of the preparation period which occurs after a time-in is called, or after a timeout expires.  This recovery period is used to alert all players that play is about to begin.
+	setcvar("g_timeoutBank", "180000"); //The total amount of time a team can spend in timeout.
 
 
 	// *****************************************************
