@@ -31,7 +31,7 @@ Rules()
 	setcvar("scr_sd_scorelimit" , "0");
 	setcvar("scr_sd_timelimit" , "0");
 	setcvar("scr_sd_roundlimit" , "0");
-	setcvar("scr_sd_roundlength" , "2");
+	setcvar("scr_sd_roundlength" , "2.25");
 	setcvar("scr_sd_graceperiod", "3");
 
 	// Shellshock 
