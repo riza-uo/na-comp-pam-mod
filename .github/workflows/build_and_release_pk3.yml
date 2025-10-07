@@ -28,7 +28,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           # The file(s) to upload as assets.
-          files: na_comp_pam_mod.pk3
+          files: z_svr_na_comp_pam.pk3
           # Creates a dynamic tag name based on the run number, e.g., v1.0.1, v1.0.2
           tag_name: v3.1.${{ github.run_number }}
           # The name of the release.
