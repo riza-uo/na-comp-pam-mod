@@ -46,7 +46,7 @@ Rules()
 	setcvar("scr_rank_ppr" , "10"); //Sets the Points Per Rank
 
 	// Hostname and MOTD 
-	setcvar("sv_hostname" , "NA COMP LEAGUE"); 
+	setcvar("sv_hostname" , "NA Competitive League"); 
 	setcvar("scr_motd" , "Wigglin' ma shit rn"); 
 
 	//Logo
