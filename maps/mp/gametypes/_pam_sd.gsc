@@ -249,6 +249,9 @@ PamMain()
 	level.defusetime = getcvarFloat("sv_BombDefuseTime");
 	level.countdowntime = getcvarFloat("sv_BombTimer");
 	level.countdownclock = getcvar("sv_ShowBombTimer");
+	//CODUO NA COMP ADDITION - bomb timer colors
+	level.countdowntimerstartcolor = (1, 1, 0);
+	level.countdowntimerendcolor = (1, 0, 0);
 	level.overtime = 0;	//Makes sure OT settings get loaded after defaults loaded
 	level.rdyup = 0;
 	level.hithalftime = 0;
@@ -3387,7 +3390,7 @@ bombzone_think(bombzone_other)
 						level.clock.alignX = "center";
 						level.clock.alignY = "middle";
 						level.clock.font = "bigfixed";
-						level.clock.color = (1, 1, 0);
+						level.clock.color = level.countdowntimerstartcolor;
 						level.clock setTimer(level.countdowntime * 1);
 					}
 					
@@ -3428,15 +3431,44 @@ bomb_countdown()
 	
 	level.bombmodel playLoopSound("bomb_tick");
 	
+	//CODUO NA COMP ADDITION - bomb timer color change
+	currframe = 1;
+	endframe = level.countdowntime * 20;
+	
+	
+	while( currframe <= endframe )
+	{
+		progress = currframe / endframe;
+		
+		startR = level.countdowntimerstartcolor[0];
+		startG = level.countdowntimerstartcolor[1];
+		startB = level.countdowntimerstartcolor[2];
+		
+		endR = level.countdowntimerendcolor[0];
+		endG = level.countdowntimerendcolor[1];
+		endB = level.countdowntimerendcolor[2];
+		
+		currR = startR + (endR - startR) * progress;
+		currG = startG + (endG - startG) * progress;
+		currB = startB + (endB - startB) * progress;
+		
+		if(level.countdownclock)
+			level.clock.color = ( currR, currG, currB);
+		else
+			level.hudplanted.color = ( currR, currG, currB);
+		
+		wait 0.5;
+		currframe += 10;
+	}
 	// set the countdown time
-	wait level.countdowntime;
+	//wait level.countdowntime;
 	
 	
 	//CODUO NA COMP PAM ADDITION - make timer red if visible
 	if(level.countdownclock != 0)
 	{
 		if(isdefined(level.clock))
-		level.clock.color = (1, 0, 0);
+		level.clock.color = level.countdowntimerendcolor;
 		wait 1;
 	}
 
@@ -3480,6 +3512,10 @@ bomb_think()
 	self endon("bomb_exploded");
 	level.barincrement = (level.barsize / (20.0 * level.defusetime));
 
+
+	//CODUO NA COMP ADDITION - only destroy planted HUD if bomb timer is on
+	
+	
 	thread Destroy_HUD_Planted();
 
 	for(;;)
@@ -4499,7 +4535,11 @@ HUD_Bomb_Planted()
 {
 	level.hudplanted = newHudElem();
 	level.hudplanted.x = 320;
-	level.hudplanted.y = 390;
+	
+	if(level.countdownclock)
+		level.hudplanted.y = 460;
+	else
+		level.hudplanted.y = 390;
 	level.hudplanted.alignX = "center";
 	level.hudplanted.alignY = "middle";
 	level.hudplanted.fontScale = 1.5;
@@ -4509,8 +4549,19 @@ HUD_Bomb_Planted()
 
 Destroy_HUD_Planted()
 {
-	wait 6;
-	level.hudplanted destroy();
+	//CODUO NA COMP ADDITION - 
+	//destroy Explosives planted HUD after 6 seconds if clock is on
+	//or wait until bomb notify if not
+	if(level.countdownclock)
+	{
+		wait 6;
+		level.hudplanted destroy();
+	}
+	else
+	{
+		level waittill("round_ended");
+		level.hudplanted destroy();
+	}
 }
 
 // WEAPON EXPLOIT FIX
